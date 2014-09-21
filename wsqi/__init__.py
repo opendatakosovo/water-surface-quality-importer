@@ -77,7 +77,7 @@ def create_water_surface_quality_documents(data_table):
                     if cell_value != '':
                         station_code = cell_value
 
-                        print_text = "\nSample from station " + colored(station_code, 'red', attrs=['bold'])
+                        print_text = "\nSamples from station " + colored(station_code, 'red', attrs=['bold'])
                         print print_text,
 
                     doc_dict['kodiStationit'] = station_code
