@@ -80,7 +80,7 @@ def create_water_surface_quality_documents(data_table):
                         print_text = "\nSamples from station " + colored(station_code, 'red', attrs=['bold'])
                         print print_text,
 
-                    doc_dict['kodiStationit'] = station_code
+                    doc_dict['stacion'] = get_station_info(station_code)
 
                 # Sampling site
                 elif row_index == 5:
@@ -126,6 +126,29 @@ def create_water_surface_quality_documents(data_table):
             docs.append(doc_dict)
 
     return docs
+
+
+def get_station_info(station_code):
+    return {
+        'kodi': station_code,
+        'emri': 'yo',
+        'slug': slugify('yo'),
+        'coordinates': {
+            'lon': -1,
+            'lat': -1
+        },
+        'riverBasin': {
+            'emri': '',
+            'slug': ''
+        },
+        'seaRegion': {
+            'emri': '',
+            'slug': ''
+        },
+        'catchmentArea': -1,
+        'populationDensity': -1,
+        'altitude': -1
+    }
 
 
 def to_camel_case(term):
