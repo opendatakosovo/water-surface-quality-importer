@@ -1,0 +1,55 @@
+Station_code,NAME,Longitude,Latitude,RiverBasin,RIVER,SeaRegionName,CatchmentArea,PopulationDensity,Altitude
+RV01_011,Radavc,20.3063258476,42.7379813414,Drini i Bardhë,Drini i Badhë,Mediteranean Sea / Adriatic Sea,1.25,0,590
+RV01_012,Drini në Klinë,20.574149797,42.5940660208,Drini i Bardhë,Drini i Badhë,Mediteranean Sea / Adriatic Sea,1187.16,135.2,390
+RV01_013,Gjonaj,20.6483326148,42.2547066496,Drini i Bardhë,Drini i Bardhë,Mediteranean Sea / Adriatic Sea,3842.84,173.25,290
+RV01_014,Vernice,20.5564791503,42.1707871932,Drini i Bardhë,Drini i Badhë,Mediteranean Sea / Adriatic Sea,4232.33,188.5,289
+RV01_021,Istog,20.4814416906,42.7893204323,Drini i Bardhë,Lumi i Istogut,Mediteranean Sea / Adriatic Sea,13.58,470.1,511
+RV01_022,Zllakuqan,20.5304052588,42.6734419493,Drini i Bardhë,Lumi i Istogut,Mediteranean Sea / Adriatic Sea,449.64,122.11,403
+RV01_031,Cerpule,20.6707459069,42.8667783326,Drini i Bardhë,Lumi Klina,Mediteranean Sea / Adriatic Sea,21.35,4.78,830
+RV01_032,Klina në Klinë,20.5711483415,42.6140474499,Drini i Bardhë,"Lumi Klina,",Mediteranean Sea / Adriatic Sea,424.04,121.26,375
+RV01_041,Drelaj,20.1586474438,42.6974216238,Drini i Bardhë,Lumbardhi i Pejës,Mediteranean Sea / Adriatic Sea,124.03,12.84,924
+RV01_042,Pejë Dalje,20.3243864862,42.6508797583,Drini i Bardhë,Lumbardhi i Pejës,Mediteranean Sea / Adriatic Sea,248.57,299.45,496
+RV01_043,Grabanicë,20.551704181,42.5881267053,Drini i Bardhë,Lumbardhi i Pejës,Mediteranean Sea / Adriatic Sea,430.54,243.28,383
+RV01_051,Bajë e Malishevës,20.7782333725,42.4642691754,Drini i Bardhë,Lumi Mirusha,Mediteranean Sea / Adriatic Sea,63.35,204.7,550
+RV01_052,Volljak,20.5639057158,42.5214594778,Drini i Bardhë,Mirusha Klinë,Mediteranean Sea / Adriatic Sea,334.22,145.27,346
+RV01_061,Deçan Hyrje,20.2602742369,42.5480443773,Drini i Bardhë,Lumbardhi i Deçanit,Mediteranean Sea / Adriatic Sea,121.26,0.6,678
+RV01_062,Kralan,20.5407488362,42.5182600301,Drini i Bardhë,Lumbardhi i Deçanit,Mediteranean Sea / Adriatic Sea,249.2,97.12,339
+RV01_071,Jasiq,20.2394036248,42.5004293444,Drini i Bardhë,Ereniku  Jasiq,Mediteranean Sea / Adriatic Sea,32.31,0,792
+RV01_072,Ura e Terzive,20.5073107332,42.3598747692,Drini i Bardhë,Lumi  Erenik,Mediteranean Sea / Adriatic Sea,505.18,242.45,332
+RV01_081,Zhdrellë,20.6467066715,42.4215985241,Drini i Bardhë,Lumi Rimnik,Mediteranean Sea / Adriatic Sea,11.26,0,442
+RV01_082,Xërxë,20.5916132508,42.3343809895,Drini i Bardhë,Lumi Rimnik,Mediteranean Sea / Adriatic Sea,71.84,344.88,322
+RV01_091,Buqallë,20.8763835695,42.370597778,Drini i Bardhë,Lumi Toplluha,Mediteranean Sea / Adriatic Sea,46.55,160.58,450
+RV01_092,Piranë,20.6743690908,42.2881020311,Drini i Bardhë,Lumi Toplluha,Mediteranean Sea / Adriatic Sea,505.62,195.95,337
+RV01_101,Prevallë,20.9530672805,42.1617368,Drini i Bardhë,Lumbardhi i Prizrenit,Mediteranean Sea / Adriatic Sea,4.21,0,1550
+RV01_102,Vlashnje,20.6512042533,42.1933106361,Drini i Bardhë,Lumbardhi i Prizrenit,Mediteranean Sea / Adriatic Sea,263.72,453.36,309
+RV02_011,Kushtovë,20.8098608131,42.8682780986,Ibri,Ibri,Black Sea,238.18,41.99,553
+RV02_012,Ibri Mitrovicë,20.8737105005,42.8963592012,Ibri,Ibri,Black Sea,305.9,299.74,505
+RV02_013,Kelmend,20.8713325382,42.9027277299,Ibri,Ibri,Black Sea,3148.45,229.13,506
+RV02_021,Bablak,21.1433996839,42.4445682049,Ibri,Sitnica,Black Sea,59.95,175.25,561
+RV02_022,Sitnica Lipjan,21.1143648451,42.5127936028,Ibri,Sitnica,Black Sea,464.68,146.16,546
+RV02_023,Sitnica Vragoli,21.0615799776,42.608889797,Ibri,Sitnica,Black Sea,686.56,160.71,543
+RV02_024,Sitnica Plemetin,21.0384396252,42.7069442324,Ibri,Sitnica,Black Sea,1498.95,279,525
+RV02_025,Sitnica Nedakovc,20.9904250632,42.7970770837,Ibri,Sitnica,Black Sea,2580.73,217.23,552
+RV02_026,Sitnica Mitrovicë,20.8816681098,42.8972412144,Ibri,Sitnica,Black Sea,2838.17,221.84,507
+RV02_031,Murgullë,21.0491876375,43.0809731959,Ibri,Llapi,Black Sea,36.48,11.92,749
+RV02_032,Podujevë,21.1944283382,42.8934184099,Ibri,Llapi,Black Sea,236.34,192.37,599
+RV02_033,Llapi Milloshevë,21.0777706961,42.7265022958,Ibri,Llapi,Black Sea,910.68,127.58,536
+RV02_041,Bresje,21.0851548078,42.6239862435,Ibri,Prishtevka,Black Sea,95.3,1696,545
+RV02_051,Graqanka Vragoli,21.067641472,42.6109487159,Ibri,Graqanka,Black Sea,175.25,126.51,543
+RV02_061,Krojmir,20.9232200222,42.517057647,Ibri,Drenica,Black Sea,46.4,138.08,611
+RV02_062,Drenica Vragoli,21.0593050466,42.6140512955,Ibri,Drenica,Black Sea,437.99,175.9,540
+RV02_071,Petrovë,20.9948837701,42.4075080489,Ibri,Lumi i Topillës,Mediteranean Sea / Adriatic Sea,25.45,25.78,576
+RV02_072,Muzeqinë,21.0941728567,42.4498336887,Ibri,Lumi Shtime,Black Sea,128.75,145,565
+RV03_011,Kurbuliq ,21.3600864104,42.2830456289,Morava e Binçës,Morava e Binçës,Black Sea,42.4,15.92,533
+RV03_012,Kllokot,21.366960266,42.3614763192,Morava e Binçës,Morava e Binçës,Black Sea,254.54,156.09,502
+RV03_013,Uglar,21.5244608581,42.4253429879,Morava e Binçës,Morava e Binçës,Black Sea,716.92,214.1,494
+RV03_014,Morava Domorovc,21.6415274557,42.5046790047,Morava e Binçës,Morava e Binçës,Black Sea,1547.46,145.68,447
+RV03_021,Zebincë,21.4090867085,42.5549041787,Morava e Binçës,Kriva reka,Black Sea,4.17,67.15,557
+RV03_022,Kriva reka Domorovc,21.6326633517,42.5103748615,Morava e Binçës,Kriva reka,Black Sea,610.62,85.74,453
+RV04_011,Prevallë Subain,20.9255523174,42.2136755508,Lepenci,Lepenc,Mediteranean Sea / Aegaen Sea,24.38,0,1100
+RV04_012,Lepenci Kaçanik,21.2569743043,42.2259447596,Lepenci,Lepenc,Mediteranean Sea / Aegaen Sea,531.13,236.38,470
+RV04_013,Hani i Elezit,21.2973227219,42.1413669177,Lepenci,Lepenc,Mediteranean Sea / Aegaen Sea,647.25,204.99,359
+RV04_021,Jezerc,21.0528874093,42.3633842543,Lepenci,Nerodimja,Mediteranean Sea / Aegaen Sea,52.03,34.17,668
+RV04_022,Bifurkacioni,21.1333110254,42.3717936651,Lepenci,Nerodimja,Mediteranean Sea / Aegaen Sea,71.25,104.07,588
+RV04_023,Gërlicë,21.2041680263,42.311492453,Lepenci,Nerodimja,Mediteranean Sea / Aegaen Sea,161.11,542.24,560
+RV04_024,Nerodimja Kaçanik,21.2574368948,42.2288611699,Lepenci,Nerodimja,Mediteranean Sea / Aegaen Sea,222.82,463.23,480

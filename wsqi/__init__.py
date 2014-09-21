@@ -15,11 +15,41 @@ water_surface_quality_collection.remove({})
 
 
 def import_data(river_name, csv_filepath):
-    data_table = create_data_table(csv_filepath)
-    docs = create_water_surface_quality_documents(data_table)
+    station_csv_filepath = 'data/Sampling Station Info.csv'
+    station_data_dict= create_station_data_dict(station_csv_filepath)
+
+    water_quality_data_table = create_water_quality_data_table(csv_filepath)
+    docs = create_water_quality_documents(water_quality_data_table, station_data_dict)
     persist(docs)
 
     return len(docs)
+
+
+def create_station_data_dict(csv_filepath):
+    data_dict = {}
+
+    with open(csv_filepath, 'rb') as csvfile:
+        reader = csv.reader(csvfile)
+
+        # Skip the header
+        next(reader, None)
+
+        for row in reader:
+            station_code = row[0]
+
+            data_dict[station_code] = {
+                'name': row[1],
+                'longitude': row[2],
+                'latitude': row[3],
+                'riverBasin': row[4],
+                'river': row[5],
+                'seaRegion': row[6],
+                'catchmentArea': row[7],
+                'populationDensity': row[8],
+                'altitude': row[9]
+            }
+
+    return data_dict
 
 
 def persist(docs):
@@ -27,37 +57,35 @@ def persist(docs):
         water_surface_quality_collection.insert(doc)
 
 
-def create_data_table(csv_filepath):
+def create_water_quality_data_table(csv_filepath):
     data_table = []
 
     with open(csv_filepath, 'rb') as csvfile:
         reader = csv.reader(csvfile)
-        index = 0
         for row in reader:
             data_table.append(row)
-            index = index + 1
     return data_table
 
 
-def create_water_surface_quality_documents(data_table):
+def create_water_quality_documents(water_quality_data_table, station_data_dict):
     docs = []
 
-    num_of_columns = len(data_table[0])
+    num_of_columns = len(water_quality_data_table[0])
     river_name = ''
     station_code = ''
     sample_site = ''
 
     for column_index in range(4, num_of_columns):
 
-        date = data_table[7][column_index]
+        date = water_quality_data_table[7][column_index]
         if date != '':
 
             doc_dict = {}
             doc_dict['_id'] = str(ObjectId())
 
-            for row_index in range(3, len(data_table)):
+            for row_index in range(3, len(water_quality_data_table)):
 
-                cell_value = data_table[row_index][column_index]
+                cell_value = water_quality_data_table[row_index][column_index]
 
                 # River name
                 if row_index == 3:
@@ -67,10 +95,13 @@ def create_water_surface_quality_documents(data_table):
                         print_text = "\nImporting sample data from river '" + river_name + "'"
                         print colored(print_text, 'green', attrs=['bold'])
 
+                    # This data is already in the station info object. We don't need it here.
+                    '''
                     doc_dict['lumi'] = {
                         'emri': river_name,
                         'slug': slugify(river_name)
                     }
+                    '''
 
                 # Station code
                 if row_index == 4:
@@ -80,7 +111,7 @@ def create_water_surface_quality_documents(data_table):
                         print_text = "\nSamples from station " + colored(station_code, 'red', attrs=['bold'])
                         print print_text,
 
-                    doc_dict['stacion'] = get_station_info(station_code)
+                    doc_dict['stacion'] = get_station_info(station_code, station_data_dict)
 
                 # Sampling site
                 elif row_index == 5:
@@ -96,7 +127,7 @@ def create_water_surface_quality_documents(data_table):
                 # Sampling date
                 elif row_index == 7:
                     sampling_date = cell_value
-                    sampling_time = data_table[10][column_index]
+                    sampling_time = water_quality_data_table[10][column_index]
 
                     sampling_date_time = sampling_date + '.' + sampling_time
 
@@ -108,46 +139,54 @@ def create_water_surface_quality_documents(data_table):
                 # Measured Parameters
                 elif row_index >= 11:
 
-                    value = data_table[row_index][column_index]
+                    value = water_quality_data_table[row_index][column_index]
 
                     if value != '' and value != 0:
-                        parameter = data_table[row_index][1]
+                        parameter = water_quality_data_table[row_index][1].strip()
                         parameter_json_key = to_camel_case(parameter)
 
-                        symbol = data_table[row_index][2]
-                        unit = data_table[row_index][3]
+                        symbol = water_quality_data_table[row_index][2]
+                        unit = water_quality_data_table[row_index][3]
 
-                        doc_dict[parameter_json_key] = {
-                            'value': value,
-                            'simboli': symbol,
-                            'njesia': unit
-                        }
+                        doc_dict[parameter_json_key] = {}
+
+                        if parameter not in ['Moti', 'Aroma', 'Ngjyra']:
+                            doc_dict[parameter_json_key]['vlere'] = float(value)
+                        else:
+                            doc_dict[parameter_json_key]['vlere'] = value
+
+                        doc_dict[parameter_json_key]['simboli'] = symbol
+                        doc_dict[parameter_json_key]['njesia'] = unit
 
             docs.append(doc_dict)
 
     return docs
 
 
-def get_station_info(station_code):
+def get_station_info(station_code, station_data_dict):
     return {
         'kodi': station_code,
-        'emri': 'yo',
-        'slug': slugify('yo'),
+        'emri': station_data_dict[station_code]['name'],
+        'slug': slugify(station_data_dict[station_code]['name']),
         'coordinates': {
-            'lon': -1,
-            'lat': -1
+            'gjatesi': float(station_data_dict[station_code]['longitude']),
+            'gjeresi': float(station_data_dict[station_code]['latitude'])
         },
-        'riverBasin': {
-            'emri': '',
-            'slug': ''
+        'gjiriLumit': {
+            'emri': station_data_dict[station_code]['riverBasin'],
+            'slug': slugify(station_data_dict[station_code]['riverBasin'])
         },
-        'seaRegion': {
-            'emri': '',
-            'slug': ''
+        'lumi': {
+            'emri': station_data_dict[station_code]['river'],
+            'slug': slugify(station_data_dict[station_code]['river'])
         },
-        'catchmentArea': -1,
-        'populationDensity': -1,
-        'altitude': -1
+        'regjioniDetit': {
+            'emri': station_data_dict[station_code]['seaRegion'],
+            'slug': slugify(station_data_dict[station_code]['seaRegion'])
+        },
+        'vendMostrimi': float(station_data_dict[station_code]['catchmentArea']),
+        'dendesiaPopullates': float(station_data_dict[station_code]['populationDensity']),
+        'lartesia': int(station_data_dict[station_code]['altitude'])
     }
 
 
