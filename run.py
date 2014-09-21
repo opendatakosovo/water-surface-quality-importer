@@ -30,8 +30,9 @@ if __name__ == '__main__':
 
                 result_dict[river_name] = doc_count
 
-    print colored("\n\nIMPORT SUMMARY:", 'magenta', attrs=['bold'])
+    print colored("\n\nWATER SURFACE QUALITY DATA IMPORT SUMMARY:", 'magenta', attrs=['bold'])
     for key in result_dict.keys():
-        print " - %s water surface quality monitoring documents created for '%s'." % (result_dict[key], key)
+        colored_river_name = colored(key, 'cyan', attrs=['bold'])
+        print " - %s measurements imported for the %s river." % (str(result_dict[key]).zfill(2), colored_river_name)
 
     print  # Just skip line

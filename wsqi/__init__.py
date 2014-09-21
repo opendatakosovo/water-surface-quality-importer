@@ -85,14 +85,14 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
 
             for row_index in range(3, len(water_quality_data_table)):
 
-                cell_value = water_quality_data_table[row_index][column_index]
+                cell_value = water_quality_data_table[row_index][column_index].strip()
 
                 # River name
                 if row_index == 3:
                     if cell_value != '':
                         river_name = cell_value
 
-                        print_text = "\nImporting sample data from river '" + river_name + "'"
+                        print_text = "\n\nImporting sample data from river '" + river_name + "':"
                         print colored(print_text, 'green', attrs=['bold'])
 
                     # This data is already in the station info object. We don't need it here.
@@ -111,7 +111,7 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
                         print_text = "\nSamples from station " + colored(station_code, 'red', attrs=['bold'])
                         print print_text,
 
-                    doc_dict['stacion'] = get_station_info(station_code, station_data_dict)
+                        doc_dict['stacion'] = get_station_info(station_code, station_data_dict)
 
                 # Sampling site
                 elif row_index == 5:
@@ -119,10 +119,13 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
                         sample_site = cell_value
                         print "(%s):" % sample_site
 
+                    # This data is already in the station info object. We don't need it here.
+                    '''
                     doc_dict['vendmostrimi'] = {
                         'emri': sample_site,
                         'slug': slugify(sample_site)
                     }
+                    '''
 
                 # Sampling date
                 elif row_index == 7:
