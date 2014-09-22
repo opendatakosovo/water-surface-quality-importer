@@ -38,13 +38,13 @@ def create_station_data_dict(csv_filepath):
             station_code = row[0]
 
             data_dict[station_code] = {
-                'name': row[1],
+                'name': row[1].replace('  ', ' ').strip(),
                 'longitude': row[2],
                 'latitude': row[3],
-                'riverBasin': row[4],
-                'river': row[5],
-                'seaRegion': row[6],
-                'catchmentArea': row[7],
+                'riverBasin': row[4].replace('  ', ' ').strip(),
+                'river': row[5].replace('  ', ' ').strip(),
+                'seaRegion': row[6].replace('  ', ' ').strip(),
+                'catchmentArea': row[7].replace('  ', ' ').strip(),
                 'populationDensity': row[8],
                 'altitude': row[9]
             }
@@ -111,7 +111,7 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
                         print_text = "\nSamples from station " + colored(station_code, 'red', attrs=['bold'])
                         print print_text,
 
-                        doc_dict['stacion'] = get_station_info(station_code, station_data_dict)
+                    doc_dict['stacion'] = get_station_info(station_code, station_data_dict)
 
                 # Sampling site
                 elif row_index == 5:
@@ -167,7 +167,7 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
 
 
 def get_station_info(station_code, station_data_dict):
-    return {
+    station = {
         'kodi': station_code,
         'emri': station_data_dict[station_code]['name'],
         'slug': slugify(station_data_dict[station_code]['name']),
@@ -191,6 +191,8 @@ def get_station_info(station_code, station_data_dict):
         'dendesiaPopullates': float(station_data_dict[station_code]['populationDensity']),
         'lartesia': int(station_data_dict[station_code]['altitude'])
     }
+
+    return station
 
 
 def to_camel_case(term):
