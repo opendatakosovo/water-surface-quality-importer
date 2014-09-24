@@ -176,7 +176,7 @@ def get_station_info(station_code, station_data_dict):
         'kodi': station_code,
         'emri': station_data_dict[station_code]['name'],
         'slug': slugify(station_data_dict[station_code]['name']),
-        'coordinates': {
+        'kordinatat': {
             'gjatesi': float(station_data_dict[station_code]['longitude']),
             'gjeresi': float(station_data_dict[station_code]['latitude'])
         },
