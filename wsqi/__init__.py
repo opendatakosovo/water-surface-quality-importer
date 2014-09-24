@@ -151,10 +151,15 @@ def create_water_quality_documents(water_quality_data_table, station_data_dict):
                         symbol = water_quality_data_table[row_index][2]
                         unit = water_quality_data_table[row_index][3]
 
+                        # We have two measurements of 'Shpenzimi biokimik i oksigjenit'. In SHBO5 and in SHBO7 
+                        if parameter == 'Shpenzimi biokimik i oksigjenit':
+                            parameter_json_key = parameter_json_key + symbol
+
                         doc_dict[parameter_json_key] = {}
 
                         if parameter not in ['Moti', 'Aroma', 'Ngjyra']:
                             doc_dict[parameter_json_key]['vlere'] = float(value)
+
                         else:
                             doc_dict[parameter_json_key]['vlere'] = value
 
